@@ -1,6 +1,17 @@
 {
   "version": 2,
   "builds": [{ "src": "src/index.ts", "use": "@vercel/node" }],
+  "functions": {
+    "api/github/webhooks/index.ts": {
+      "runtime": "nodejs14.x"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/github/webhooks",
+      "dest": "/api/github/webhooks/index.ts"
+    }
+  ],
   "github": {
     "silent": true
   }
