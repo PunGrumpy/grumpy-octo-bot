@@ -14,4 +14,4 @@ services:
       - NODE_ENV=production
       - PRIVATE_KEY_PATH=${PRIVATE_KEY_PATH}
       - APP_ID=${APP_ID}
-    command: yarn start
+    command: ['npm', 'start']
