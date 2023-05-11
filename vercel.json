@@ -1,18 +1,21 @@
 {
   "version": 2,
-  "builds": [{ "src": "src/index.ts", "use": "@vercel/node" }],
   "functions": {
     "api/github/webhooks/index.ts": {
-      "runtime": "nodejs14.x"
+      "runtime": "vercel-node@0.12.0"
     }
   },
   "routes": [
     {
-      "src": "/api/github/webhooks",
+      "src": "/api/github/webhooks/(.*)",
       "dest": "/api/github/webhooks/index.ts"
     }
   ],
-  "github": {
-    "silent": true
+  "env": {
+    "APP_ID": "@app-id",
+    "WEBHOOK_SECRET": "@webhook-secret",
+    "PRIVATE_KEY": "@private-key",
+    "LOG_LEVEL": "debug",
+    "DISCORD_WEBHOOK_URL": "@discord-webhook-url"
   }
 }
