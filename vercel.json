@@ -10,12 +10,5 @@
       "src": "/api/github/webhooks/(.*)",
       "dest": "/api/github/webhooks/index.ts"
     }
-  ],
-  "env": {
-    "APP_ID": "@app-id",
-    "WEBHOOK_SECRET": "@webhook-secret",
-    "PRIVATE_KEY": "@private-key",
-    "LOG_LEVEL": "debug",
-    "DISCORD_WEBHOOK_URL": "@discord-webhook-url"
-  }
+  ]
 }
