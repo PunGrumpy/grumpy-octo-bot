@@ -4,7 +4,7 @@
   "private": true,
   "description": "A GitHub bot work with Probot",
   "author": "PunGrumpy",
-  "license": "MIT",
+  "license": "ISC",
   "homepage": "https://github.com//",
   "keywords": [
     "probot",
