@@ -2,7 +2,7 @@
   "name": "grumpy-octo-bot",
   "version": "1.0.0",
   "private": true,
-  "description": "A GitHub bot work with Probot",
+  "description": "Bringing a touch of grumpiness to GitHub operations, with a nod to the beloved Octocat",
   "author": "PunGrumpy",
   "license": "ISC",
   "homepage": "https://github.com//",

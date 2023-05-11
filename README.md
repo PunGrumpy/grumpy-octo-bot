@@ -1,6 +1,6 @@
 # GrumpyOctoBot
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that A GitHub bot work with Probot
+> A GitHub App built with [Probot](https://github.com/probot/probot) that Bringing a touch of grumpiness to GitHub operations, with a nod to the beloved Octocat
 
 ## Setup
 
