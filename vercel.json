@@ -1,14 +1,6 @@
 {
-  "version": 2,
-  "functions": {
-    "api/github/webhooks/index.ts": {
-      "runtime": "vercel-node@0.12.0"
-    }
-  },
-  "routes": [
-    {
-      "src": "/api/github/webhooks/(.*)",
-      "dest": "/api/github/webhooks/index.ts"
-    }
-  ]
+  "rewrites": [{ "source": "/", "destination": "/api" }],
+  "github": {
+    "silent": true
+  }
 }
