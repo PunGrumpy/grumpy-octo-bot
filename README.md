@@ -1,4 +1,4 @@
-# github-bot
+# GitHub Bot
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that A GitHub bot work with Probot
 
