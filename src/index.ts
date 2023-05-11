@@ -1,15 +1,25 @@
 import { Probot } from 'probot'
+import pullRequestHandler from './handler/pullRequestHandler'
+import issueHandler from './handler/issueHandler'
+import discordWebhookHandler from './handler/discordWebhookHandler'
+import { logger } from './logger'
 
-export = (app: Probot) => {
-  app.on('issues.opened', async context => {
-    const issueComment = context.issue({
-      body: 'Thanks for opening this issue!'
-    })
-    await context.octokit.issues.createComment(issueComment)
+export = (app: Probot): void => {
+  app.on('pull_request.opened', async context => {
+    try {
+      await pullRequestHandler(context)
+    } catch (err) {
+      logger.error('Error processing pull request:', err)
+      await discordWebhookHandler('Error processing pull request', err)
+    }
   })
-  // For more information on building apps:
-  // https://probot.github.io/docs/
 
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
+  app.on('issues.opened', async context => {
+    try {
+      await issueHandler(context)
+    } catch (err) {
+      logger.error('Error processing issue:', err)
+      await discordWebhookHandler('Error processing issue', err)
+    }
+  })
 }
