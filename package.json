@@ -14,12 +14,15 @@
   "scripts": {
     "build": "tsc",
     "start": "probot run ./lib/index.js",
-    "test": "jest"
+    "test": "jest",
+    "format": "prettier --write {src,test}/**/*.{js,ts,json,md}",
+    "format:check": "prettier --check {src,test}/**/*.{js,ts,json,md}"
   },
   "dependencies": {
     "probot": "^12.2.4"
   },
   "devDependencies": {
+    "prettier": "^2.8.8",
     "@types/jest": "^29.0.0",
     "@types/node": "^18.0.0",
     "jest": "^29.0.0",
