@@ -10,10 +10,8 @@ export default async function issueHandler(
   const table = `| Property | Value |
   | --- | --- |
   | Title | ${issue.title} |
-  | URL | ${issue.html_url} |
+  | Number | ${issue.number} |
   | Created by | ${issue.user.login} |
-  | Created at | ${issue.created_at} |
-  | Updated at | ${issue.updated_at} |
   `
 
   const message = `👋 Hi @${issue.user.login}, 

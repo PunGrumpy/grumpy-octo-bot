@@ -10,10 +10,11 @@ export default async function pullRequestHandler(
   const table = `| Property | Value |
   | --- | --- |
   | Title | ${pullRequest.title} |
-  | URL | ${pullRequest.html_url} |
+  | Number | ${pullRequest.number} |
+  | Line Changes | ${pullRequest.additions + pullRequest.deletions} |
+  | Commits | ${pullRequest.commits} |
+  | Files Changed | ${pullRequest.changed_files} |
   | Created by | ${pullRequest.user.login} |
-  | Created at | ${pullRequest.created_at} |
-  | Updated at | ${pullRequest.updated_at} |
   `
 
   const message = `👋 Hi @${pullRequest.user.login}, 
