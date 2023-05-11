@@ -69,6 +69,11 @@
     "pretty": false,
     "skipLibCheck": true
   },
-  "include": ["src/", "src/api", "src/api/github/webhooks"],
+  "include": [
+    "src/",
+    "src/api",
+    "src/api/github/webhooks",
+    "pino-std-serializers.d.ts"
+  ],
   "compileOnSave": false
 }
