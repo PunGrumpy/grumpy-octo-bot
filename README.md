@@ -6,10 +6,10 @@
 
 ```sh
 # Install dependencies
-npm install
+yarn install
 
 # Run the bot
-npm start
+yarn start
 ```
 
 ## Docker
@@ -20,6 +20,16 @@ docker build -t github-bot .
 
 # 2. Start container
 docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> github-bot
+```
+
+## Docker Compose (Optional)
+
+```sh
+# 1. Build container
+docker compose up --build
+
+# 2. Start container
+docker compose up -d
 ```
 
 ## Contributing
