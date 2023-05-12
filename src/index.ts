@@ -1,15 +1,15 @@
 import { Probot } from 'probot'
 import { Context } from 'probot'
-import pullRequestHandler from './handler/pullRequestHandler'
-import { logger } from './logger'
+import { issueOpenedHandler } from './handler/issueHandler'
+import { pullRequestOpenedHandler } from './handler/pullRequestHandler'
 import discordWebhookHandler from './handler/discordWebhookHandler'
-import issueHandler from './handler/issueHandler'
+import { logger } from './logger'
 
 const pullRequestHandle = async (
   context: Context<'pull_request.opened'>
 ): Promise<void> => {
   try {
-    await pullRequestHandler(context)
+    await pullRequestOpenedHandler(context)
   } catch (err) {
     logger.error(err)
     discordWebhookHandler('An error occurred in pullRequestHandler', err)
@@ -20,7 +20,7 @@ const issueHandle = async (
   context: Context<'issues.opened'>
 ): Promise<void> => {
   try {
-    await issueHandler(context)
+    await issueOpenedHandler(context)
   } catch (err) {
     logger.error(err)
     discordWebhookHandler('An error occurred in issueHandler', err)

@@ -23,6 +23,7 @@
     "probot": "^12.2.4"
   },
   "devDependencies": {
+    "@oceanlvr/chatgpt": "^2.0.0",
     "@types/jest": "^29.5.1",
     "@types/node": "^20.1.2",
     "@types/pino": "^7.0.5",
