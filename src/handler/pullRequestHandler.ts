@@ -1,7 +1,5 @@
 import { Context } from 'probot'
 
-let ChatGPTAPI: any
-
 export async function pullRequestOpenedHandler(
   context: Context<'pull_request.opened'>
 ): Promise<void> {
