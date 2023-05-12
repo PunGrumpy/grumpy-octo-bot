@@ -18,8 +18,8 @@ export default async function discordWebhookHandler(
       {
         title: title,
         fields: [
-          { name: 'Error message', value: errorMessage },
-          { name: 'Error', value: JSON.stringify(err) }
+          { name: 'Error', value: JSON.stringify(err) },
+          { name: 'Error message', value: errorMessage }
         ],
         color: 0xff0000 // red color
       }

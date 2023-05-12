@@ -1,20 +1,10 @@
 import { Context } from 'probot'
 
-let ChatGPTAPI: any
-
 export async function issueOpenedHandler(
   context: Context<'issues.opened'>
 ): Promise<void> {
-  if (!ChatGPTAPI) ChatGPTAPI = (await import('@oceanlvr/chatgpt')).ChatGPTAPI
-
   const issue = context.payload.issue
   const repo = context.repo()
-
-  const gptClient = new ChatGPTAPI({
-    sessionToken: process.env.SESSION_GPT_TOKEN || ''
-  })
-
-  gptClient.ensureAuth()
 
   const table = `| 🧾 Property | 📌 Value |
   | --- | --- |
@@ -22,9 +12,6 @@ export async function issueOpenedHandler(
   | 🆔 Number | ${issue.number} |
   | 👤 Created by | ${issue.user.login} |
   `
-
-  const prompt = `Please provide insights on the following issue titled "${issue.title}" with details:\n\n${issue.body}\n\n`
-  const response = await gptClient.sendMessage(prompt)
 
   const message = `👋 Hi @${issue.user.login}, 
 
@@ -37,10 +24,6 @@ Here are some details about the issue:
 ### 📊 Issue Statistics
 
 ${table}
-
-### 🤖 AI Insights
-
-${response}
 
 We appreciate your input and patience. Happy coding! 💻`
 
