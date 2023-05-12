@@ -11,6 +11,7 @@
     "github",
     "probot-app"
   ],
+  "type": "commonjs",
   "scripts": {
     "build": "tsc",
     "start": "probot run ./lib/index.js",
@@ -32,6 +33,7 @@
     "prettier": "^2.8.8",
     "smee-client": "^1.2.3",
     "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
   "engines": {

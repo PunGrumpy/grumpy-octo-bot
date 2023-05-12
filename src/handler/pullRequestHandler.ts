@@ -1,5 +1,4 @@
 import { Context } from 'probot'
-import { ChatGPTAPI } from '@oceanlvr/chatgpt'
 
 export async function pullRequestOpenedHandler(
   context: Context<'pull_request.opened'>
@@ -42,6 +41,8 @@ We appreciate your patience and contribution. Happy coding! 💻`
 export async function pullRequestSynchronizeHandler(
   context: Context<'pull_request.synchronize'>
 ) {
+  const { ChatGPTAPI } = await import('@oceanlvr/chatgpt')
+
   const pullRequest = context.payload.pull_request
   const compare = await context.octokit.repos.compareCommits({
     owner: context.payload.repository.owner.login,
