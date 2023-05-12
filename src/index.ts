@@ -27,7 +27,7 @@ const issueHandle = async (
   }
 }
 
-export = (app: Probot): void => {
+export default (app: Probot): void => {
   app.on('pull_request.opened', pullRequestHandle)
   app.on('issues.opened', issueHandle)
 }
