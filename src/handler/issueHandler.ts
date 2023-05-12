@@ -1,9 +1,11 @@
 import { Context } from 'probot'
 
+let ChatGPTAPI: any
+
 export async function issueOpenedHandler(
   context: Context<'issues.opened'>
 ): Promise<void> {
-  const { ChatGPTAPI } = await import('@oceanlvr/chatgpt')
+  if (!ChatGPTAPI) ChatGPTAPI = (await import('@oceanlvr/chatgpt')).ChatGPTAPI
 
   const issue = context.payload.issue
   const repo = context.repo()

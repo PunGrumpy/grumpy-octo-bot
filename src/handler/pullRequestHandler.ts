@@ -1,5 +1,7 @@
 import { Context } from 'probot'
 
+let ChatGPTAPI: any
+
 export async function pullRequestOpenedHandler(
   context: Context<'pull_request.opened'>
 ): Promise<void> {
@@ -41,7 +43,7 @@ We appreciate your patience and contribution. Happy coding! 💻`
 export async function pullRequestSynchronizeHandler(
   context: Context<'pull_request.synchronize'>
 ) {
-  const { ChatGPTAPI } = await import('@oceanlvr/chatgpt')
+  if (!ChatGPTAPI) ChatGPTAPI = (await import('@oceanlvr/chatgpt')).ChatGPTAPI
 
   const pullRequest = context.payload.pull_request
   const compare = await context.octokit.repos.compareCommits({
